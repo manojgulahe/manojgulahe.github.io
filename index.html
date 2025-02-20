@@ -1,106 +1,82 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>microservices-example-auth/README.md at master · manojgulahe/microservices-example-auth</title>
-<meta name="google-site-verification" content="xeUZDOizn_V5KgUyDRYRZyLuPLKYQQofGBDqjyPkokE" />
-    <meta name="description" content="microservices authentication and authorization using consul as service discovery with spring cloud and spring boot - manojgulahe/microservices-example-auth">
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
-  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
-  <meta property="fb:app_id" content="1401488693436528">
-
-    <meta name="twitter:image:src" content="https://avatars3.githubusercontent.com/u/5054671?s=400&amp;v=4" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="manojgulahe/microservices-example-auth" /><meta name="twitter:description" content="microservices authentication and authorization using consul as service discovery with spring cloud and spring boot - manojgulahe/microservices-example-auth" />
-    <meta property="og:image" content="https://avatars3.githubusercontent.com/u/5054671?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="manojgulahe/microservices-example-auth" /><meta property="og:url" content="https://github.com/manojgulahe/microservices-example-auth" /><meta property="og:description" content="microservices authentication and authorization using consul as service discovery with spring cloud and spring boot - manojgulahe/microservices-example-auth" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manoj Gulahe - IAM Expert, Software Architect, and Technology Leader specializing in Identity and Access Management, Security, and Scalable Architectures.">
+    <meta name="keywords" content="IAM Expert, Identity and Access Management, Software Architect, Security, Cybersecurity, Java, Cloud Computing, Microservices, Digital Transformation">
+    <meta name="author" content="Manoj Gulahe">
+    <title>Manoj Gulahe | IAM Expert & Technology Leader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .expertise {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-<article class="markdown-body entry-content container-lg" itemprop="text"><h1><a id="user-content-microservices-example-auth" class="anchor" aria-hidden="true" href="https://github.com/manojgulahe/microservices-example-auth/blob/master/README.md"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>microservices-example-auth</h1>
-<p>Authentication is main component for microservices architeture. Many different types of architecture is available on internet.
-I have implimented it with OAuth and Consul as service discovery.</p>
-<h2><a id="user-content-prerequisites" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Prerequisites</h2>
-<p>Install Consul on your system. Download consul from <a href="https://www.consul.io/" rel="nofollow">https://www.consul.io/</a>.
-Run consul using instruction from website <a href="https://learn.hashicorp.com/consul/getting-started/install" rel="nofollow">https://learn.hashicorp.com/consul/getting-started/install</a>
-Also need to install mongodb as database.</p>
-<h3><a id="user-content-create-database-in-mongodb" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Create database in mongodb</h3>
-<p>Create  oauth-db in mongodb
-Create collection as authClientDetails
-Insert following document</p>
-<pre><code>{
-    "clientId": "browser",
-    "clientSecret": "$2a$10$fWNTd3H.u7G/aNROVQSifebOkZ2xzU5nUPOCI2Ld42M8E25/ljJqK",
-    "scopes": "ui",
-    "grantTypes": "refresh_token,password,client_credentials"
-}
-
-{
-    "clientId": "account-service",
-    "clientSecret": "$2a$10$fWNTd3H.u7G/aNROVQSifebOkZ2xzU5nUPOCI2Ld42M8E25/ljJqK",
-    "scopes": "server",
-    "grantTypes": "refresh_token,client_credentials,password"
-}
-</code></pre>
-<p>Create collection as user
-Insert following document</p>
-<pre><code>{
-    "activated": true,
-    "authorities": ["ROLE_USER"],
-    "password": "$2a$10$fWNTd3H.u7G/aNROVQSifebOkZ2xzU5nUPOCI2Ld42M8E25/ljJqK",
-    "username": "randomuser"
-}
-</code></pre>
-<h2><a id="user-content-description-of-component" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Description of component</h2>
-<p>ZuulServer -- gateway for all services. You have access services from gateway only. In real environment you will face CROS issue because all services are running on different ports. Gateway resolve that issue
-AuthService -- It is a OAuth server which will authenticate and authorize user using spring security.
-AccountService -- It is a Resource server. All other service will be resource server.</p>
-<h3><a id="user-content-execution-steps" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Execution Steps</h3>
-<ul>
-<li>Start Consul server</li>
-<li>Run Zuul service</li>
-<li>Run Auth service</li>
-<li>Lastly Run Account service</li>
-</ul>
-<h4><a id="user-content-zuul-service" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Zuul Service</h4>
-<p>This only work as gateway. Application.yml file contains routes which is very important part it will forward to service disovery. And service discovery will take route your request to runing services. You can run mutiple authservice and account service. Service discovery(consul) will take responsibility to route request to correct service.</p>
-<h4><a id="user-content-auth-service" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Auth service</h4>
-<p>This is authentication and authorization server. It will create a token and store it into database. All properties stored in bootstrap.yml because it will load before application start. Health check up api is require for consul. It used by consul for heart beat check else consul conside service is down.</p>
-<h4><a id="user-content-account-service" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Account Service</h4>
-<p>This is resource service. As per OAuth flow if you want to access resource servers you need OAuth token. Authorization flow is used in this example.</p>
-<h3><a id="user-content-api-flow" class="anchor" aria-hidden="true"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API Flow</h3>
-<pre><code>Post API 
-  http://localhost:8081/uaa/oauth/token
-  Form submission
-  grant_type : password
-  username : randomuser
-  password : 1234
-To generate token.
-
-Respose will be like 
-{
-  "access_token": "fb5e13a7-e41e-4dc4-8ec9-6ed6db69c30c",
-  "token_type": "bearer",
-  "refresh_token": "2587af85-72da-426a-a4e1-babb1b71f2ac",
-  "expires_in": 42910,
-  "scope": "server"
-}
-</code></pre>
-<pre><code>Post API To create User
-  http://localhost:8080/accounts/
-  Header 
-    Authorization: Bearer fb5e13a7-e41e-4dc4-8ec9-6ed6db69c30c
-  Body
-    {
-      "username":"NewUser",
-      "password":"1234"
-    }
-Respose will be like
-    {
-  "id": "5eb65fd5ecef38584d967aaf",
-  "username": "NewUser"
-  }
-</code></pre>
-<p>This api internally calls auht service for user creation. As we have used oauth sso resouce server with FeignClient will
-relay token to calling service. Used EnableOAuth2Sso annotaion in resource server.</p>
-<p>It also have one more API</p>
-<pre><code>Get Current user
-  http://localhost:8080/uaa/user/current
-  Header 
-    Authorization: Bearer fb5e13a7-e41e-4dc4-8ec9-6ed6db69c30c
-</code></pre>
-</article>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manoj Gulahe</h1>
+            <h2>IAM Expert | Software Architect | Security Strategist</h2>
+        </header>
+        <section>
+            <h3>About Me</h3>
+            <p>With over 15 years of experience in software development and security-focused architectures, I am a recognized expert in Identity and Access Management (IAM). My journey began with a passion for creating secure and scalable digital solutions, and over the years, I have built enterprise-grade IAM systems that empower organizations with seamless authentication and authorization mechanisms.</p>
+            <p>Currently serving as the Associate Vice President at Kathreftis AI Pvt. Ltd., I lead the development of IAM strategies, overseeing the design and implementation of authentication and authorization frameworks that safeguard digital identities across enterprises. My expertise lies in crafting IAM solutions that enhance security while ensuring an optimal user experience, enabling businesses to adopt secure digital transformation strategies.</p>
+            <p>Throughout my career, I have architected security-driven platforms, contributed to IAM standards, and guided organizations in achieving regulatory compliance. My deep understanding of security protocols, access control models, and cloud-based IAM frameworks makes me a trusted thought leader in the field.</p>
+        </section>
+        <section>
+            <h3>IAM Expertise & Contributions</h3>
+            <ul>
+                <li><strong>Designed and implemented enterprise-grade IAM solutions</strong> – delivering robust authentication, authorization, and SSO frameworks.</li>
+                <li><strong>Architected Cymmetri</strong> – an advanced IAM product leveraging microservices, cloud technologies, and security-first design principles.</li>
+                <li><strong>Expertise in security protocols</strong> – OAuth, SAML, OpenID Connect, and multi-factor authentication (MFA).</li>
+                <li><strong>IAM-driven digital transformation</strong> – enabling organizations to streamline identity management while reducing security risks.</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Core Skills & Specializations</h3>
+            <div class="expertise">
+                <p>✅ Identity and Access Management (IAM), SSO, RBAC, ABAC</p>
+                <p>✅ Security Architecture, Zero Trust, Cybersecurity Best Practices</p>
+                <p>✅ Cloud Computing (AWS, Azure), DevOps, CI/CD</p>
+                <p>✅ Java, Spring Boot, Microservices, API Security</p>
+                <p>✅ Digital Transformation, Compliance (GDPR, NIST, ISO 27001)</p>
+            </div>
+        </section>
+        <section>
+            <h3>Industry Recognition & Certifications</h3>
+            <ul>
+                <li><strong>Certified Digital Architecture Leader</strong> – ZACHMAN Framework</li>
+                <li><strong>B.E. in Information Technology</strong> – Priyadarshini College of Engineering, Nagpur</li>
+                <li><strong>Contributor & Speaker</strong> – IAM and Cybersecurity conferences</li>
+            </ul>
+        </section>
+        <footer>
+            <p>Passionate about securing digital identities and driving IAM innovation for a safer digital future.</p>
+        </footer>
+    </div>
+</body>
 </html>
