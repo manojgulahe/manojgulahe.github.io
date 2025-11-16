@@ -1,63 +1,102 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy for Digital Legacy Vault</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 2em; background: #fafafa; color: #222; }
-        .container { max-width: 800px; margin: auto; background: #fff; padding: 2em; box-shadow: 0 0 10px #eee; }
-        h1 { color: #2a7ae2; }
-        footer { margin-top: 2em; font-size: 0.9em; color: #888; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .permission-section {
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .data-point {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p>Effective date: July 21, 2025</p>
 
-        <p>
-            Your privacy is important to us. This Privacy Policy explains how our app ("we", "us", or "our") collects, uses, and protects your information when you use our services.
-        </p>
+    <h1>Privacy Policy for Digital Legacy Vault</h1>
+    <p><strong>Last Updated:</strong> November 15, 2025</p>
 
-        <h2>Information We Collect</h2>
+    <h2>Introduction</h2>
+    <p>Welcome to Digital Legacy Vault ("the App"). We are committed to protecting your privacy and handling your data with transparency. This Privacy Policy explains what information we collect, how we use it, and why we require certain device permissions to provide our services. Our core principle is data minimization; we only ask for what is absolutely necessary for the App to function securely.</p>
+
+    <h2>Our Core Privacy Principle: Zero Knowledge</h2>
+    <p>Your financial data, personal documents, notes, and secrets (your "Vault Data") are encrypted on your device using a master key that only you control. Your Vault Data is <strong>never</strong> uploaded to our servers, and we, the developers, have zero access to it.</p>
+
+    <hr>
+
+    <h2>Required Android Permissions and Justifications</h2>
+    <p>Our App requests the following permissions to enable specific features. The App cannot function correctly without them.</p>
+
+    <div class="permission-section">
+        <h3>1. Camera Permission (<code>android.permission.CAMERA</code>)</h3>
         <ul>
-            <li>Sentinel does <strong>not collect</strong> or transmit your personal data.</li>
-            <li>The app runs <strong>entirely on your device</strong> and <strong>does not connect to external servers</strong>.</li>
-            <li>We access SMS messages and phone state <strong>only for threat detection</strong>, to alert you about scams or frauds.</li>
-
+            <li><span class="data-point">Why we need it:</span> The Camera permission is required for our "Secure Transfer" feature. This feature allows you to migrate your encrypted Vault from your old phone to a new one easily and securely.</li>
+            <li><span class="data-point">How it's used:</span> When you select the "Import Key" option on your new device, the App uses the camera to scan a QR code displayed on your old device. This QR code contains your unique master encryption key. The camera is <strong>only</strong> active when you explicitly initiate this scanning process.</li>
+            <li><span class="data-point">What we DON'T do:</span> We do not record, store, or transmit any images or videos from your camera. The camera's use is temporary and solely for reading the transfer QR code.</li>
         </ul>
-
-        <h2>Permissions We Use</h2>
-        <ul>
-            <li>READ_SMS: To detect suspicious messages.</li>
-            <li>RECEIVE_SMS: To react to new incoming messages.</li>
-            <li>READ_PHONE_STATE: To determine the phone’s status, e.g., if it's in a call (used for specific threat cases only).</li>
-        </ul>
-
-        <h2>Sharing of Information</h2>
-        <p>
-            We do not collect or share any data. All analysis is performed locally on your device.
-        </p>
-
-        <h2>Children's Privacy</h2>
-        <p>
-            Our app is not directed to children under 13 and does not knowingly collect personal information from children.
-        </p>
-
-        <h2>Changes to This Policy</h2>
-        <p>
-            We may update this policy from time to time. Any changes will be posted within the app or on this page.
-        </p>
-
-        <h2>Contact Us</h2>
-        <p>
-            If you have questions about this Privacy Policy, please contact us at: <a href="mailto:mangogolahe@gmail.com">mangogolahe@gmail.com</a>
-        </p>
-
-        <footer>
-            &copy; 2025 Your App Name. All rights reserved.
-        </footer>
     </div>
+
+    <div class="permission-section">
+        <h3>2. Biometric Permission (<code>android.permission.USE_BIOMETRIC</code>)</h3>
+        <ul>
+            <li><span class="data-point">Why we need it:</span> We use this permission to provide a convenient and highly secure way for you to unlock your Vault using your device's built-in biometrics (fingerprint or face recognition).</li>
+            <li><span class="data-point">How it's used:</span> When you enable biometric login, our App leverages Android's native biometric framework. The App simply asks the Android system, "Is this the valid device owner?". The system handles the verification securely on-device.</li>
+            <li><span class="data-point">What we DON'T do:</span> Your biometric data (fingerprint or face data) is <strong>never</strong> accessed, read, stored, or transmitted by our App. All biometric processing is handled securely by your device's operating system.</li>
+        </ul>
+    </div>
+
+    <div class="permission-section">
+        <h3>3. Post Notifications Permission (<code>android.permission.POST_NOTIFICATIONS</code>)</h3>
+        <ul>
+            <li><span class="data-point">Why we need it:</span> This permission is <strong>critical</strong> for the App's primary "dead man's switch" functionality. The App's purpose is to alert your emergency contact if you fail to check in within your specified validation period.</li>
+            <li><span class="data-point">How it's used:</span> Our App uses background processes to monitor your validation schedule. If your check-in deadline is approaching, the App must send you a local notification to remind you. Without this permission, you would not receive these crucial reminders, which could lead to a false emergency alert being sent.</li>
+            <li><span class="data-point">What we DON'T do:</span> We do not use notifications for marketing or promotional purposes. All notifications are strictly related to the core security and validation functions of the App.</li>
+        </ul>
+    </div>
+    
+    <div class="permission-section">
+        <h3>4. Background Execution & Start on Boot</h3>
+        <ul>
+            <li><span class="data-point">Why we need it:</span> To ensure the reliability of our validation reminders, our app must be able to run periodic checks in the background, even if the App is closed or the device has been restarted.</li>
+            <li><span class="data-point">How it's used:</span> This is directly tied to the Notifications feature. A lightweight background process runs occasionally to check if your validation deadline is near. This ensures that reminder notifications can be scheduled reliably.</li>
+            <li><span class="data-point">What we DON'T do:</span> The background process is optimized for minimal battery impact. It does not access personal data; it only checks the last validation timestamp stored securely within the App's private storage.</li>
+        </ul>
+    </div>
+
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, you can contact us at: <a href="mailto:your-support-email@example.com">your-support-email@example.com</a></p>
+
 </body>
 </html>
